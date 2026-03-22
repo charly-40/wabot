@@ -1,3 +1,16 @@
+console.log(`
+====================================
+🤖 WABot iniciado correctamente
+====================================
+
+📌 Instrucciones:
+1. Escanea el QR que aparecerá
+2. Espera conexión
+3. Usa el comando !menu en WhatsApp
+
+====================================
+`);
+
 import makeWASocket, {
     DisconnectReason,
     useMultiFileAuthState,
@@ -281,3 +294,10 @@ async function startBot() {
 }
 
 startBot();
+process.on('uncaughtException', (err) => {
+  console.error('❌ Error no controlado:', err);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('❌ Promesa rechazada:', reason);
+});
